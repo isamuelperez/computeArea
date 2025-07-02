@@ -1,0 +1,59 @@
+<mat-card class="calculator-card">
+  <mat-card-header>
+    <mat-card-title>Calculadora de Área de Manchas</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="upload-section">
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+      <button mat-raised-button color="primary" (click)="fileInput.click()">
+        <mat-icon>cloud_upload</mat-icon> Subir Imagen Binaria
+      </button>
+      <span *ngIf="selectedFile">{{ selectedFile.name }}</span>
+      <span *ngIf="!selectedFile && !imageDimensions">Ningún archivo seleccionado.</span>
+      <div *ngIf="imageDimensions" class="image-info">
+        <p>Dimensiones de la imagen: {{ imageDimensions.width }} x {{ imageDimensions.height }} píxeles</p>
+        <p>Área total de la imagen: {{ totalImageArea | number }} píxeles cuadrados</p>
+      </div>
+      <div *ngIf="uploadError" class="error-message">
+        {{ uploadError }}
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="points-section">
+      <h3>Cantidad de Puntos Aleatorios (n):</h3>
+      <mat-slider
+        min="1000"
+        max="100000"
+        step="1000"
+        thumbLabel
+        [displayWith]="formatLabel"
+        [(ngModel)]="numberOfPoints"
+        color="accent"
+      ></mat-slider>
+      <p>Puntos seleccionados: {{ numberOfPoints | number }}</p>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="calculation-section">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="calculateArea()"
+        [disabled]="!selectedFile || calculationInProgress"
+      >
+        <mat-icon>calculate</mat-icon> {{ calculationInProgress ? 'Calculando...' : 'Calcular Área Estimada' }}
+      </button>
+      <div *ngIf="estimatedArea !== null" class="result">
+        <h3>Área Estimada de la Mancha: {{ estimatedArea | number:'1.2-2' }} píxeles cuadrados</h3>
+        <p>Puntos totales (n): {{ lastCalculationDetails.totalPoints | number }}</p>
+        <p>Puntos en la mancha (ni): {{ lastCalculationDetails.pointsInStain | number }}</p>
+      </div>
+      <div *ngIf="calculationError" class="error-message">
+        {{ calculationError }}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

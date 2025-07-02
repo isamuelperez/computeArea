@@ -1,0 +1,36 @@
+.calculator-card {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.upload-section, .points-section, .calculation-section {
+  margin-bottom: 20px;
+}
+
+.upload-section button {
+  margin-right: 10px;
+}
+
+.image-info {
+  margin-top: 10px;
+  font-style: italic;
+  color: #e0e0e0;
+}
+
+mat-slider {
+  width: 100%;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+ 
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}

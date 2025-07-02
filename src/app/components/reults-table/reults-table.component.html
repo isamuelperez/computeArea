@@ -1,0 +1,68 @@
+<mat-card class="results-card">
+  <mat-card-header>
+    <mat-card-title>Resultados de Cálculos Anteriores</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="table-actions">
+      <button mat-stroked-button color="warn" (click)="clearAllResults()" [disabled]="dataSource.data.length === 0">
+        <mat-icon>delete_forever</mat-icon> Limpiar Todos
+      </button>
+    </div>
+
+    <div *ngIf="dataSource.data.length === 0" class="no-results">
+      <p>No hay resultados de cálculos anteriores para mostrar.</p>
+      <p>¡Realiza un cálculo en la pestaña "Calcular Área" para empezar!</p>
+    </div>
+
+    <div class="mat-elevation-z2" *ngIf="dataSource.data.length > 0">
+      <table mat-table [dataSource]="dataSource" class="full-width-table">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="timestamp">
+          <th mat-header-cell *matHeaderCellDef> Fecha/Hora </th>
+          <td mat-cell *matCellDef="let element"> {{element.timestamp | date:'short'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="imageName">
+          <th mat-header-cell *matHeaderCellDef> Imagen </th>
+          <td mat-cell *matCellDef="let element"> {{element.imageName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalPoints">
+          <th mat-header-cell *matHeaderCellDef> Puntos (n) </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalPoints | number}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="pointsInStain">
+          <th mat-header-cell *matHeaderCellDef> Puntos en Mancha (ni) </th>
+          <td mat-cell *matCellDef="let element"> {{element.pointsInStain | number}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalImageArea">
+          <th mat-header-cell *matHeaderCellDef> Área Imagen Total </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalImageArea | number:'1.0-0'}} px² </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estimatedStainArea">
+          <th mat-header-cell *matHeaderCellDef> Área Mancha Estimada </th>
+          <td mat-cell *matCellDef="let element"> {{element.estimatedStainArea | number:'1.2-2'}} px² </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="deleteResult(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,29 @@
+<mat-horizontal-stepper #stepper>
+  <mat-step label="Paso 1: Subir Imagen Binaria">
+    <p>Sube una imagen binaria donde los píxeles blancos representan la mancha y los píxeles negros el fondo.</p>
+    <div>
+      <button mat-button matStepperNext>Siguiente</button>
+    </div>
+  </mat-step>
+  <mat-step label="Paso 2: Generar Puntos Aleatorios">
+    <p>Se generarán 'n' puntos 2D aleatorios dentro de las dimensiones de la imagen.</p>
+    <div>
+      <button mat-button matStepperPrevious>Anterior</button>
+      <button mat-button matStepperNext>Siguiente</button>
+    </div>
+  </mat-step>
+  <mat-step label="Paso 3: Contar Puntos en la Mancha">
+    <p>Se contará el número de puntos aleatorios que caen dentro de la mancha (píxeles blancos).</p>
+    <div>
+      <button mat-button matStepperPrevious>Anterior</button>
+      <button mat-button matStepperNext>Siguiente</button>
+    </div>
+  </mat-step>
+  <mat-step label="Paso 4: Estimar el Área">
+    <p>El área de la mancha se estimará usando la fórmula: Área = (Área Total de la Imagen) × (ni / n).</p>
+    <div>
+      <button mat-button matStepperPrevious>Anterior</button>
+      <button mat-button (click)="stepper.reset()">Reiniciar</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

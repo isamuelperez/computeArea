@@ -1,0 +1,22 @@
+.results-card {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.table-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+  font-style: italic;
+}
