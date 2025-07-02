@@ -22,7 +22,7 @@ Este proyecto es una aplicación web desarrollada con Angular que permite estima
 
 - Interfaz de Usuario Intuitiva: Desarrollada con Angular Material para una experiencia de usuario moderna y responsiva.
 
-- CSS: se implmento la plantilla de CSS al momento de crear el proyecto en angular para darle estilos a los componentes de la interface
+- CSS: Se implemento la plantilla de CSS al momento de crear el proyecto en Angular para darle estilos a los componentes de la interface
 
 # Tecnologías Utilizadas
 - Angular v13+: Framework principal para el desarrollo frontend
