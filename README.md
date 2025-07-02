@@ -8,11 +8,11 @@ Este proyecto es una aplicación web desarrollada con Angular que permite estima
 - Carga de Imágenes: Sube imágenes binarias (PNG, JPEG, BMP) para su análisis.
 - Estimación por Muestreo:
 
-- Genera un número configurable de puntos aleatorios sobre la imagen.
+  - Genera un número configurable de puntos aleatorios sobre la imagen.
 
-- Cuenta cuántos de esos puntos caen dentro de la "mancha" (píxeles blancos).
+  - Cuenta cuántos de esos puntos caen dentro de la "mancha" (píxeles blancos).
 
-- Estima el área de la mancha basándose en la proporción de puntos en la mancha respecto al total de puntos y el área total de la imagen.
+  - Estima el área de la mancha basándose en la proporción de puntos en la mancha respecto al total de puntos y el área total de la imagen.
 
 - Historial de Resultados: Almacena y muestra un historial de todos los cálculos realizados, incluyendo fecha, nombre de la imagen, puntos muestreados y área estimada.
 
@@ -21,6 +21,22 @@ Este proyecto es una aplicación web desarrollada con Angular que permite estima
 - Metodología Integrada: Un stepper interactivo guía al usuario a través de la metodología detrás del cálculo de Monte Carlo.
 
 - Interfaz de Usuario Intuitiva: Desarrollada con Angular Material para una experiencia de usuario moderna y responsiva.
+
+# Tecnologías Utilizadas
+- Angular v13+: Framework principal para el desarrollo frontend
+
+  ![image](https://github.com/user-attachments/assets/183e86f5-7592-40ef-b850-e7304d4d6fe3)
+
+
+- TypeScript: Lenguaje de programación.
+
+- RxJS: Para manejo de operaciones asíncronas y reactividad (aunque el estado principal ahora usa Signals, RxJS sigue siendo clave para operaciones como la carga de imágenes).
+
+- Angular Material: Librería de componentes UI para una interfaz consistente y atractiva.
+
+- HTML5 Canvas API: Utilizada para el procesamiento de imágenes en el lado del cliente (carga de píxeles, conteo de puntos).
+
+- localStorage: Para persistir el historial de resultados en el navegador.
 
 ## Development server
 
@@ -37,6 +53,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running unit tests coverage
+
+Run `ng test --code-coverage` to execute the unit tests coverage
 
 ## Running end-to-end tests
 
